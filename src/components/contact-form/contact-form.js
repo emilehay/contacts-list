@@ -20,7 +20,9 @@ const ContactForm = props => {
             listContacts();
         }
 
-        if(id !== null){
+        console.log(id);
+
+        if(id !== void(0)){
             setEdit(true);
         }
 

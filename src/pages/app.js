@@ -41,7 +41,7 @@ const App = () => {
                   </div>
                 </Fragment>
               )} />
-              <Route path='/contact/:id' render={props => (
+              <Route path='/contact/:id?' render={props => (
                 <Fragment>
                   <div className='row mb-3'>
                     <div className='col-12 col-md-8 m-auto'>
