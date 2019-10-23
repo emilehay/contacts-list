@@ -10,7 +10,9 @@ const ContactList = () => {
     const { contacts, loading, listContacts } = contactsContext;
 
     useEffect(() => {
-        listContacts();
+        if(contacts.length === 0){
+            listContacts();
+        }
     }, [])
 
     if(loading){

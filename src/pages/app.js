@@ -1,32 +1,59 @@
-import React from 'react';
+import React, { Fragment, useState } from 'react';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import ContactList from '../components/contact-list/contact-list';
+import ContactForm from '../components/contact-form/contact-form';
 
 import ContactsState from '../context/contacts/ContactsState';
 
-import './../styles/styles.scss';
-
 const App = () => {
+
+  const [toContactForm, setToContactForm] = useState(false);
+
+  const goToContactForm = () => {
+    setToContactForm(true);
+  }
+
   return (
     <ContactsState>
-      <div className='contacts-list'>
-        <div className='container'>
-          <div className='row mt-5 mb-4'>
-            <div className='col text-center'>
-              <h2 className='text-white'>My contacts</h2>
+      <Router>
+        {
+          toContactForm && <Redirect to='/contact/' />
+        }
+        <div className='contacts-list'>
+          <div className='container'>
+            <div className='row mt-5 mb-4'>
+              <div className='col text-center'>
+                <h2 className='text-white'>My contacts</h2>
+              </div>
             </div>
-          </div>
-          <div className='row mb-3'>
-            <div className='col-12 col-md-8 m-auto'>
-              <ContactList />
-            </div>
-          </div>
-          <div className='row'>
-            <div className='col-12 col-md-8 m-auto text-right'>
-              <button className='btn btn-light'>Add a contact</button>
-            </div>
+            <Switch>
+              <Route exact path='/' render={props => (
+                <Fragment>
+                  <div className='row mb-3'>
+                    <div className='col-12 col-md-8 m-auto'>
+                      <ContactList />
+                    </div>
+                  </div>
+                  <div className='row'>
+                    <div className='col-12 col-md-8 m-auto text-right'>
+                      <button className='btn btn-light' onClick={goToContactForm.bind(this)}>Add a contact</button>
+                    </div>
+                  </div>
+                </Fragment>
+              )} />
+              <Route exact path='/contact/' render={props => (
+                <Fragment>
+                  <div className='row mb-3'>
+                    <div className='col-12 col-md-8 m-auto'>
+                      <ContactForm />
+                    </div>
+                  </div>
+                </Fragment>
+              )} />
+            </Switch>
           </div>
         </div>
-      </div>
+      </Router>
     </ContactsState>
   );
 }
