@@ -20,7 +20,7 @@ const ContactList = () => {
             <div className='contact-list'>
                 {
                     contacts.map((contact, index) => {
-                        return <ContactItem key={index} contact={contact} />
+                        return <ContactItem key={index} index={index} contact={contact} />
                     })
                 }
             </div>

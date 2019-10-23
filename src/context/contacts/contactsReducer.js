@@ -8,6 +8,12 @@ import {
 
 export default (state, action) => {
     switch(action.type){
+        case DELETE_CONTACT: {
+            return {
+                ...state,
+                contacts: action.payload,
+            }
+        }
         case LIST_CONTACTS:
             return {
                 ...state,

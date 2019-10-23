@@ -53,12 +53,26 @@ const ContactsState = props => {
 
     }
 
+    //Delete contact
+    const deleteContact = index => {
+
+        const result = state.contacts;
+        result.splice(index,1);
+
+        dispatch({
+            type: DELETE_CONTACT,
+            payload: result,
+        })
+        
+    }
+
     return <ContactsContext.Provider
         value={{
             contacts: state.contacts,
             loading: state.loading,
             listContacts,
             setLoading,
+            deleteContact
         }}
     >
         {props.children}
