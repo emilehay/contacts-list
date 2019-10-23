@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react';
-import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect, Link } from 'react-router-dom';
 import ContactList from '../components/contact-list/contact-list';
 import ContactForm from '../components/contact-form/contact-form';
 
@@ -41,8 +41,13 @@ const App = () => {
                   </div>
                 </Fragment>
               )} />
-              <Route exact path='/contact/' render={props => (
+              <Route path='/contact/:id' render={props => (
                 <Fragment>
+                  <div className='row mb-3'>
+                    <div className='col-12 col-md-8 m-auto'>
+                      <Link className='btn btn-outline-light' to='/'>Back</Link>
+                    </div>
+                  </div>
                   <div className='row mb-3'>
                     <div className='col-12 col-md-8 m-auto'>
                       <ContactForm />

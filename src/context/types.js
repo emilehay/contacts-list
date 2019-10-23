@@ -1,7 +1,6 @@
 
 export const LIST_CONTACTS = 'LIST_CONTACTS';
 export const SET_CURRENT_CONTACT = 'SET_CURRENT_CONTACT';
-export const SET_EDITING = 'SET_EDITING';
 export const SET_LOADING = 'SET_LOADING';
 export const ADD_CONTACT = 'ADD_CONTACT';
 export const UPDATE_CONTACT = 'UPDATE_CONTACT';

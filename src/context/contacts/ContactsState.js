@@ -7,7 +7,6 @@ import {
     ADD_CONTACT,
     UPDATE_CONTACT,
     DELETE_CONTACT,
-    SET_EDITING,
     SET_CURRENT_CONTACT,
 } from '../types';
 
@@ -16,7 +15,6 @@ const ContactsState = props => {
     const initialState = {
         contacts: [],
         current_contact: {},
-        editing: false,
         loading: false,
     }
 
@@ -25,15 +23,12 @@ const ContactsState = props => {
     //Set loading
     const setLoading = () => dispatch({ type: SET_LOADING })
 
-    //Set editing
-    const setEditing = () => dispatch({ type: SET_EDITING })
-
     //Set current contact
     const setCurrentContact = (index) => {
 
         const currentContact = {
-            name: state.contacts[index].first_name,
-            surname: state.contacts[index].last_name,
+            first_name: state.contacts[index].first_name,
+            last_name: state.contacts[index].last_name,
             email: state.contacts[index].email,
         };
 
@@ -51,18 +46,18 @@ const ContactsState = props => {
 
         const fakeUsersResult = [
             {
-                name: 'John',
-                surname: 'Doe',
+                first_name: 'John',
+                last_name: 'Doe',
                 email: 'johndoe@gmail.com',
             },
             {
-                name: 'Jane',
-                surname: 'Doe',
+                first_name: 'Jane',
+                last_name: 'Doe',
                 email: 'janedoe@gmail.com',
             },
             {
-                name: 'Foo',
-                surname: 'Bar',
+                first_name: 'Foo',
+                last_name: 'Bar',
                 email: 'foobar@gmail.com',
             },
         ];
@@ -95,8 +90,8 @@ const ContactsState = props => {
         const result = state.contacts;
 
         const contact = {
-            name: first_name,
-            surname: last_name,
+            first_name: first_name,
+            last_name: last_name,
             email: email,
         };
 
@@ -113,8 +108,8 @@ const ContactsState = props => {
     const editContact = (index, first_name, last_name, email) => {
 
         const contact = {
-            name: first_name,
-            surname: last_name,
+            first_name: first_name,
+            last_name: last_name,
             email: email,
         };
 
@@ -136,7 +131,6 @@ const ContactsState = props => {
             deleteContact,
             addContact,
             editContact,
-            setEditing,
             setCurrentContact,
         }}
     >

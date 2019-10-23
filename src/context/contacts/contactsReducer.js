@@ -4,7 +4,6 @@ import {
     ADD_CONTACT,
     UPDATE_CONTACT,
     DELETE_CONTACT,
-    SET_EDITING,
     SET_CURRENT_CONTACT,
 } from '../types';
 
@@ -20,7 +19,6 @@ export default (state, action) => {
             return {
                 ...state,
                 constacts: action.payload,
-                editing: false,
             }
         }
         case SET_CURRENT_CONTACT: {
@@ -45,11 +43,6 @@ export default (state, action) => {
             return {
                 ...state,
                 loading: true,
-            }
-        case SET_EDITING:
-            return {
-                ...state,
-                editing: true,
             }
         default:
             return state;

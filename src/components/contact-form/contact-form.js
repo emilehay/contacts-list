@@ -1,20 +1,29 @@
 import React, { useContext, useEffect, useState } from 'react'
+import { useParams } from "react-router";
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import './contact-form.scss';
 import ContactsContext from './../../context/contacts/contactsContext';
 
-const ContactForm = () => {
+const ContactForm = props => {
 
     const [inputs, setInputs] = useState({});
+    const [edit, setEdit] = useState(false);
     const [toHome, setToHome] = useState(false);
 
     const contactsContext = useContext(ContactsContext);
-    const { contacts, addContact, listContacts } = contactsContext;
+    const { contacts, addContact, editContact, listContacts } = contactsContext;
+
+    let { id } = useParams();
 
     useEffect(() => {
         if(contacts.length === 0){
             listContacts();
         }
+
+        if(id !== null){
+            setEdit(true);
+        }
+
     }, [])
 
     const onChange = (e) => {
@@ -24,7 +33,13 @@ const ContactForm = () => {
 
     const onSubmit = (e) => {
         e.preventDefault();
-        addContact(inputs.first_name, inputs.last_name, inputs.email);
+
+        if(edit){
+            editContact(id, inputs.first_name, inputs.last_name, inputs.email);
+        } else {
+            addContact(inputs.first_name, inputs.last_name, inputs.email);
+        }
+
         goToHome();
     }
 
