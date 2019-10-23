@@ -1,0 +1,8 @@
+html, body{
+    min-height: 100%;
+}
+
+body{
+    background-image: linear-gradient(to top, #88d3ce 0%, #6e45e2 100%);
+    background-image: linear-gradient(to top, var(--cornflower-blue) 0%, var(--royal-blue) 100%);
+}
