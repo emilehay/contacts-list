@@ -11,10 +11,6 @@ const ContactItem = ({ index, contact }) => {
     const [toEditForm, setToEditForm] = useState(false);
 
     const prepForEdit = () => {
-        goToEditForm();
-    }
-
-    const goToEditForm = () => {
         setToEditForm(true);
     }
     
