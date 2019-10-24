@@ -11,7 +11,7 @@ const ContactForm = props => {
     const [toHome, setToHome] = useState(false);
 
     const contactsContext = useContext(ContactsContext);
-    const { addContact, contacts, editContact, listContacts } = contactsContext;
+    const { addContact, contacts, current_contact, editContact, listContacts } = contactsContext;
 
     let { id } = useParams();
 
@@ -19,14 +19,22 @@ const ContactForm = props => {
         if(contacts.length === 0){
             listContacts();
         }
+    }, [])
 
-        console.log(id);
-
+    useEffect(() => {
         if(id !== void(0)){
             setEdit(true);
-        }
 
-    }, [])
+            if(contacts.length > 0){
+                setInputs({
+                    ...inputs,
+                    first_name: contacts[id].first_name,
+                    last_name: contacts[id].last_name,
+                    email: contacts[id].email,
+                });
+            }
+        }
+    }, [contacts])
 
     const onChange = (e) => {
         e.persist();

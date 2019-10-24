@@ -7,11 +7,14 @@ import ContactsContext from './../../context/contacts/contactsContext'
 const ContactList = () => {
 
     const contactsContext = useContext(ContactsContext);
-    const { contacts, loading, listContacts } = contactsContext;
+    const { contacts, loading, listContacts, setLoading } = contactsContext;
 
     useEffect(() => {
         if(contacts.length === 0){
-            listContacts();
+            setLoading();
+            setTimeout(() => {
+                listContacts();
+            }, 1000);
         }
     }, [])
 

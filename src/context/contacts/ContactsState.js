@@ -42,8 +42,6 @@ const ContactsState = props => {
     //List contacts
     const listContacts = () => {
 
-        setLoading();
-
         const fakeUsersResult = [
             {
                 first_name: 'John',
@@ -62,12 +60,10 @@ const ContactsState = props => {
             },
         ];
 
-        setTimeout(() => {
-            dispatch({
-                type: LIST_CONTACTS,
-                payload: fakeUsersResult,
-            })
-        }, 1000);
+        dispatch({
+            type: LIST_CONTACTS,
+            payload: fakeUsersResult,
+        })
 
     }
 
