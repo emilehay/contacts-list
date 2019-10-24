@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect, Link } from 'react-router-dom';
 import ContactList from '../components/contact-list/contact-list';
 import ContactForm from '../components/contact-form/contact-form';
@@ -8,6 +8,12 @@ import ContactsState from '../context/contacts/ContactsState';
 const App = () => {
 
   const [toContactForm, setToContactForm] = useState(false);
+
+  useEffect(()=>{
+    return () => {
+      setToContactForm(false);
+    };
+  })
 
   const goToContactForm = () => {
     setToContactForm(true);
@@ -34,9 +40,9 @@ const App = () => {
                       <ContactList />
                     </div>
                   </div>
-                  <div className='row'>
+                  <div className='row mb-5'>
                     <div className='col-12 col-md-8 m-auto text-right'>
-                      <button className='btn btn-light' onClick={goToContactForm.bind(this)}>Add a contact</button>
+                      <button className='btn btn-light' onClick={goToContactForm.bind(null)}>Add a contact</button>
                     </div>
                   </div>
                 </Fragment>

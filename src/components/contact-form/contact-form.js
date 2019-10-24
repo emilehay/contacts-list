@@ -6,7 +6,7 @@ import ContactsContext from './../../context/contacts/contactsContext'
 
 const ContactForm = props => {
 
-    const [inputs, setInputs] = useState({});
+    const [inputs, setInputs] = useState({ first_name: '', last_name: '', email: '' });
     const [edit, setEdit] = useState(false);
     const [toHome, setToHome] = useState(false);
 
