@@ -69,13 +69,13 @@ const ContactForm = props => {
                             <div className='col'>
                                 <div className='form-group'>
                                     <label htmlFor='first_name'>First name:</label>
-                                    <input className='form-control' type='text' name='first_name' onChange={onChange} value={inputs.first_name} />
+                                    <input className='form-control' type='text' name='first_name' required onChange={onChange} value={inputs.first_name} />
                                 </div>
                             </div>
                             <div className='col'>
                                 <div className='form-group'>
                                     <label htmlFor='last_name'>Last name:</label>
-                                    <input className='form-control' type='text' name='last_name' onChange={onChange} value={inputs.last_name} />
+                                    <input className='form-control' type='text' name='last_name' required onChange={onChange} value={inputs.last_name} />
                                 </div>
                             </div>
                         </div>
@@ -83,7 +83,7 @@ const ContactForm = props => {
                             <div className='col'>
                                 <div className='form-group'>
                                     <label htmlFor='email'>Email address:</label>
-                                    <input className='form-control' type='text' name='email' onChange={onChange} value={inputs.email} />
+                                    <input className='form-control' type='email' name='email' required onChange={onChange} value={inputs.email} />
                                 </div>
                             </div>
                         </div>
