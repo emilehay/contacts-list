@@ -41,7 +41,7 @@ const App = () => {
                     </div>
                   </div>
                   <div className='row mb-5'>
-                    <div className='col-12 col-md-8 m-auto text-right'>
+                    <div className='col-12 col-sm-10 col-md-8 m-auto text-right'>
                       <button className='btn btn-light' onClick={goToContactForm.bind(null)}>Add a contact</button>
                     </div>
                   </div>
@@ -50,12 +50,12 @@ const App = () => {
               <Route path='/contact/:id?' render={props => (
                 <Fragment>
                   <div className='row mb-3'>
-                    <div className='col-12 col-md-8 m-auto'>
+                    <div className='col-12 col-sm-10 col-md-8 '>
                       <Link className='btn btn-outline-light' to='/'>Back</Link>
                     </div>
                   </div>
                   <div className='row mb-3'>
-                    <div className='col-12 col-md-8 m-auto'>
+                    <div className='col-12 col-sm-10 col-md-8'>
                       <ContactForm />
                     </div>
                   </div>

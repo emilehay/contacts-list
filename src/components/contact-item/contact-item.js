@@ -27,13 +27,13 @@ const ContactItem = ({ index, contact }) => {
             <div className='card-body'>
                 <div className='container'>
                     <div className='row d-flex align-items-center'>
-                        <div className='col'>
+                        <div className='col-12 col-md-4 text-center text-md-left'>
                             <span>{contact.first_name} {contact.last_name}</span>
                         </div>
-                        <div className='col text-center'>
+                        <div className='col-12 col-md-4 text-center text-md-center'>
                             <span>{contact.email}</span>
                         </div>
-                        <div className='col text-right'>
+                        <div className='col-12 col-md-4 text-center text-md-right'>
                             <div className='btn-group' role='group'>
                                 <button type='button' className='btn btn-outline-secondary' onClick={prepForEdit.bind(null, index)}>
                                     <img src={require('../../assets/edit.svg')} alt='Edit' title='Edit Contact' />
