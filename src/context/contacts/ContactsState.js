@@ -24,28 +24,45 @@ const ContactsState = props => {
     //List contacts
     const listContacts = () => {
 
-        const fakeUsersResult = [
-            {
-                first_name: 'John',
-                last_name: 'Doe',
-                email: 'johndoe@gmail.com',
-            },
-            {
-                first_name: 'Jane',
-                last_name: 'Doe',
-                email: 'janedoe@gmail.com',
-            },
-            {
-                first_name: 'Foo',
-                last_name: 'Bar',
-                email: 'foobar@gmail.com',
-            },
-        ];
+        const localContacts = window.localStorage.getItem('contacts');
 
-        dispatch({
-            type: LIST_CONTACTS,
-            payload: fakeUsersResult,
-        })
+        if(localContacts === undefined || localContacts === null || localContacts.length === 0){
+
+            const fakeUsersResult = [
+                {
+                    first_name: 'John',
+                    last_name: 'Doe',
+                    email: 'johndoe@gmail.com',
+                },
+                {
+                    first_name: 'Jane',
+                    last_name: 'Doe',
+                    email: 'janedoe@gmail.com',
+                },
+                {
+                    first_name: 'Foo',
+                    last_name: 'Bar',
+                    email: 'foobar@gmail.com',
+                },
+            ];
+
+            window.localStorage.setItem('contacts', JSON.stringify(fakeUsersResult));
+
+            dispatch({
+                type: LIST_CONTACTS,
+                payload: fakeUsersResult,
+            })
+
+        } else {
+
+            const localContactsObj = JSON.parse(localContacts);
+
+            dispatch({
+                type: LIST_CONTACTS,
+                payload: localContactsObj,
+            })
+
+        }
 
     }
 
@@ -54,6 +71,8 @@ const ContactsState = props => {
 
         const result = state.contacts;
         result.splice(index,1);
+
+        window.localStorage.setItem('contacts', JSON.stringify(result));
 
         dispatch({
             type: DELETE_CONTACT,
@@ -75,6 +94,8 @@ const ContactsState = props => {
 
         result.push(contact);
 
+        window.localStorage.setItem('contacts', JSON.stringify(result));
+
         dispatch({
             type: ADD_CONTACT,
             payload: result,
@@ -92,6 +113,8 @@ const ContactsState = props => {
         };
 
         const result = state.contacts[index] = contact;
+
+        window.localStorage.setItem('contacts', JSON.stringify(state.contacts));
 
         dispatch({
             type: UPDATE_CONTACT,
