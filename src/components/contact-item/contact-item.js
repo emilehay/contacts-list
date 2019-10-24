@@ -6,7 +6,7 @@ import ContactsContext from './../../context/contacts/contactsContext'
 const ContactItem = ({ index, contact }) => {
 
     const contactsContext = useContext(ContactsContext);
-    const { deleteContact, setCurrentContact, setEditing } = contactsContext;
+    const { deleteContact, setCurrentContact } = contactsContext;
     
     const [toEditForm, setToEditForm] = useState(false);
 

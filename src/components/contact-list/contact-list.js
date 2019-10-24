@@ -1,8 +1,8 @@
 import React, { useContext, useEffect } from 'react'
 import ContactItem from '../contact-item/contact-item'
-import Loader from '../loader/loader';
-import './contact-list.scss';
-import ContactsContext from './../../context/contacts/contactsContext';
+import Loader from '../loader/loader'
+import './contact-list.scss'
+import ContactsContext from './../../context/contacts/contactsContext'
 
 const ContactList = () => {
 

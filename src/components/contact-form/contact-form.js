@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { useParams } from "react-router";
-import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
-import './contact-form.scss';
-import ContactsContext from './../../context/contacts/contactsContext';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
+import { useParams } from "react-router"
+import './contact-form.scss'
+import ContactsContext from './../../context/contacts/contactsContext'
 
 const ContactForm = props => {
 
@@ -11,7 +11,7 @@ const ContactForm = props => {
     const [toHome, setToHome] = useState(false);
 
     const contactsContext = useContext(ContactsContext);
-    const { contacts, addContact, editContact, listContacts } = contactsContext;
+    const { addContact, contacts, editContact, listContacts } = contactsContext;
 
     let { id } = useParams();
 
