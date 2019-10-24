@@ -50,12 +50,12 @@ const App = () => {
               <Route path='/contact/:id?' render={props => (
                 <Fragment>
                   <div className='row mb-3'>
-                    <div className='col-12 col-sm-10 col-md-8 '>
+                    <div className='col-12 col-sm-10 col-md-8 m-auto'>
                       <Link className='btn btn-outline-light' to='/'>Back</Link>
                     </div>
                   </div>
                   <div className='row mb-3'>
-                    <div className='col-12 col-sm-10 col-md-8'>
+                    <div className='col-12 col-sm-10 col-md-8 m-auto'>
                       <ContactForm />
                     </div>
                   </div>

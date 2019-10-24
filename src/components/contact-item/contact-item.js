@@ -6,12 +6,11 @@ import ContactsContext from './../../context/contacts/contactsContext'
 const ContactItem = ({ index, contact }) => {
 
     const contactsContext = useContext(ContactsContext);
-    const { deleteContact, setCurrentContact } = contactsContext;
+    const { deleteContact } = contactsContext;
     
     const [toEditForm, setToEditForm] = useState(false);
 
-    const prepForEdit = (editIndex) => {
-        setCurrentContact(editIndex);
+    const prepForEdit = () => {
         goToEditForm();
     }
 

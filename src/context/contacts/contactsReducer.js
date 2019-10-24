@@ -4,7 +4,6 @@ import {
     ADD_CONTACT,
     UPDATE_CONTACT,
     DELETE_CONTACT,
-    SET_CURRENT_CONTACT,
 } from '../types';
 
 export default (state, action) => {
@@ -19,12 +18,6 @@ export default (state, action) => {
             return {
                 ...state,
                 constacts: action.payload,
-            }
-        }
-        case SET_CURRENT_CONTACT: {
-            return {
-                ...state,
-                current_contact: action.payload,
             }
         }
         case DELETE_CONTACT: {

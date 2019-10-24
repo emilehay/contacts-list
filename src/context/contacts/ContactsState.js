@@ -7,14 +7,12 @@ import {
     ADD_CONTACT,
     UPDATE_CONTACT,
     DELETE_CONTACT,
-    SET_CURRENT_CONTACT,
 } from '../types';
 
 const ContactsState = props => {
 
     const initialState = {
         contacts: [],
-        current_contact: {},
         loading: false,
     }
 
@@ -22,22 +20,6 @@ const ContactsState = props => {
 
     //Set loading
     const setLoading = () => dispatch({ type: SET_LOADING })
-
-    //Set current contact
-    const setCurrentContact = (index) => {
-
-        const currentContact = {
-            first_name: state.contacts[index].first_name,
-            last_name: state.contacts[index].last_name,
-            email: state.contacts[index].email,
-        };
-
-        dispatch({
-            type: SET_CURRENT_CONTACT,
-            payload: currentContact,
-        })   
-
-    }
 
     //List contacts
     const listContacts = () => {
@@ -127,7 +109,6 @@ const ContactsState = props => {
             deleteContact,
             addContact,
             editContact,
-            setCurrentContact,
         }}
     >
         {props.children}

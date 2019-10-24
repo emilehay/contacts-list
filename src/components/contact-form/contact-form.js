@@ -11,7 +11,7 @@ const ContactForm = props => {
     const [toHome, setToHome] = useState(false);
 
     const contactsContext = useContext(ContactsContext);
-    const { addContact, contacts, current_contact, editContact, listContacts } = contactsContext;
+    const { addContact, contacts, editContact, listContacts } = contactsContext;
 
     let { id } = useParams();
 
